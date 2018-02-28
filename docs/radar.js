@@ -322,8 +322,9 @@ function radar_visualization(config) {
 
   function showBubble(d) {
     if (d.active || config.print_layout) {
+      var reason = d.reason ? [d.label, d.reason].join(" - ") : d.label
       var tooltip = d3.select("#bubble text")
-        .text(d.label);
+        .text(reason);
       var bbox = tooltip.node().getBBox();
       d3.select("#bubble")
         .attr("transform", translate(d.x - bbox.width / 2, d.y - 16))
