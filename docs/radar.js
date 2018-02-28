@@ -259,7 +259,7 @@ function radar_visualization(config) {
     radar.append("text")
       .attr("transform", translate(title_offset.x, title_offset.y))
       .text(config.title)
-      .style("font-size", "34");
+      .attr("class", "main-title");
 
     // footer
     radar.append("text")
@@ -277,7 +277,7 @@ function radar_visualization(config) {
           legend_offset[quadrant].y - 45
         ))
         .text(config.quadrants[quadrant].name)
-        .style("font-size", "18");
+        .attr("class", "quadrant-title");
       for (var ring = 0; ring < 4; ring++) {
         legend.append("text")
           .attr("transform", legend_transform(quadrant, ring))
@@ -406,3 +406,4 @@ function radar_visualization(config) {
     .force("collision", d3.forceCollide().radius(12).strength(0.85))
     .on("tick", ticked);
 }
+
